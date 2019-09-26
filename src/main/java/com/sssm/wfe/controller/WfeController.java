@@ -1,20 +1,20 @@
 package com.sssm.wfe.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+@Controller
 public class WfeController {
-
-	@GetMapping("/getallfoods")
-	public List<String> getAllFoods() {
-		List<String> foods = new ArrayList<>();
-		foods.add("Donuts");
-		foods.add("Muffins");
-		return foods;
+	
+	@RequestMapping("/index")
+	public ModelAndView getHomepage() {
+		Map<String, Object> map = new HashMap<>();
+		map.put("userId", "27");
+		return new ModelAndView("index", "model", map);
 	}
 
 }
